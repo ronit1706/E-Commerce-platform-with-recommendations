@@ -1,0 +1,20 @@
+
+{% extends 'shop/base.html' %}
+
+{% block content %}
+  <h1>{{ product.name }}</h1>
+  <p>{{ product.description }}</p>
+  <p>₹{{ product.price }}</p>
+  <img src="{{ product.image.url }}" alt="{{ product.name }}">
+  <a href="{% url 'add_to_cart' product.product_id %}">Add to Cart</a>  <!-- Use product.product_id -->
+  
+  <h2>Recommended Products</h2>
+  <ul>
+    {% for rec in recommendations %}
+      <li>
+        <a href="{% url 'product_detail' rec.product_id %}">{{ rec.name }}</a>  <!-- Use rec.product_id -->
+        - ₹{{ rec.price }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- shop/view_cart.html -->
+{% extends 'shop/base.html' %}
+
+{% block content %}
+  <h1>Your Cart</h1>
+  <ul>
+    {% for item in cart_items %}
+      <li>
+        {{ item.product.name }} - Quantity: {{ item.quantity }} - Price: ₹{{ item.product.price }}
+      </li>
+    {% empty %}
+      <li>Your cart is empty.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'home' %}">Continue Shopping</a>
+    <a href="{% url 'checkout' %}">Checkout</a>
+{% endblock %}

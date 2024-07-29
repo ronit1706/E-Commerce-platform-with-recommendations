@@ -1,0 +1,9 @@
+<!-- shop/templates/shop/profile.html -->
+
+{% extends 'shop/base.html' %}
+
+{% block content %}
+<h2>User Profile</h2>
+<p>Welcome, {{ user.username }}!</p>
+<p>Email: {{ user.email }}</p>
+{% endblock %}
